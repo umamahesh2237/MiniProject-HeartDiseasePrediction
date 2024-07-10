@@ -1,0 +1,275 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Heart Disease Prediction</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="age">Age (in years)</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age (e.g., 35)" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex</label>
+                <select class="form-control" id="sex" name="sex" required>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cp">Chest Pain Type</label>
+                <select class="form-control" id="cp" name="cp" required>
+                    <option value="0">Type 0: Typical angina</option>
+                    <option value="1">Type 1: Atypical angina</option>
+                    <option value="2">Type 2: Non-anginal pain</option>
+                    <option value="3">Type 3: Asymptomatic</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="trestbps">Resting Blood Pressure (mm Hg)</label>
+                <input type="number" class="form-control" id="trestbps" name="trestbps" placeholder="Enter your resting blood pressure (e.g., 120)" required>
+            </div>
+            <div class="form-group">
+                <label for="chol">Cholesterol (mg/dl)</label>
+                <input type="number" class="form-control" id="chol" name="chol" placeholder="Enter your cholesterol level (e.g., 200)" required>
+            </div>
+            <div class="form-group">
+                <label for="fbs">Fasting Blood Sugar &gt; 120 mg/dl</label>
+                <select class="form-control" id="fbs" name="fbs" required>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="restecg">Resting ECG Results</label>
+                <input type="number" class="form-control" id="restecg" name="restecg" placeholder="Enter your resting ECG results (e.g., 1)" required>
+            </div>
+            <div class="form-group">
+                <label for="thalach">Maximum Heart Rate Achieved (bpm)</label>
+                <input type="number" class="form-control" id="thalach" name="thalach" placeholder="Enter your maximum heart rate achieved (e.g., 150)" required>
+            </div>
+            <div class="form-group">
+                <label for="exang">Exercise Induced Angina</label>
+                <select class="form-control" id="exang" name="exang" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="oldpeak">ST Depression Induced by Exercise</label>
+                <input type="number" step="0.1" class="form-control" id="oldpeak" name="oldpeak" placeholder="Enter your ST depression induced by exercise (e.g., 1.5)" required>
+            </div>
+            <div class="form-group">
+                <label for="slope">Slope of the Peak Exercise ST Segment</label>
+                <select class="form-control" id="slope" name="slope" required>
+                    <option value="0">Type 0: Upsloping</option>
+                    <option value="1">Type 1: Flat</option>
+                    <option value="2">Type 2: Downsloping</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ca">Number of Major Vessels Colored by Fluoroscopy</label>
+                <input type="number" class="form-control" id="ca" name="ca" placeholder="Enter the number of major vessels colored by fluoroscopy (e.g., 0)" required>
+            </div>
+            <div class="form-group">
+                <label for="thal">Thalassemia</label>
+                <select class="form-control" id="thal" name="thal" required>
+                    <option value="1">Normal</option>
+                    <option value="2">Fixed Defect</option>
+                    <option value="3">Reversible Defect</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="mt-5">Heart Disease Prediction</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="age">Age (in years)</label>
+                <input type="number" class="form-control" id="age" name="age" placeholder="Enter your age (e.g., 35)" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex</label>
+                <select class="form-control" id="sex" name="sex" required>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cp">Chest Pain Type</label>
+                <select class="form-control" id="cp" name="cp" required>
+                    <option value="0">Type 0: Typical angina</option>
+                    <option value="1">Type 1: Atypical angina</option>
+                    <option value="2">Type 2: Non-anginal pain</option>
+                    <option value="3">Type 3: Asymptomatic</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="trestbps">Resting Blood Pressure (mm Hg)</label>
+                <input type="number" class="form-control" id="trestbps" name="trestbps" placeholder="Enter your resting blood pressure (e.g., 120)" required>
+            </div>
+            <div class="form-group">
+                <label for="chol">Cholesterol (mg/dl)</label>
+                <input type="number" class="form-control" id="chol" name="chol" placeholder="Enter your cholesterol level (e.g., 200)" required>
+            </div>
+            <div class="form-group">
+                <label for="fbs">Fasting Blood Sugar &gt; 120 mg/dl</label>
+                <select class="form-control" id="fbs" name="fbs" required>
+                    <option value="1">True</option>
+                    <option value="0">False</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="restecg">Resting ECG Results</label>
+                <input type="number" class="form-control" id="restecg" name="restecg" placeholder="Enter your resting ECG results (e.g., 1)" required>
+            </div>
+            <div class="form-group">
+                <label for="thalach">Maximum Heart Rate Achieved (bpm)</label>
+                <input type="number" class="form-control" id="thalach" name="thalach" placeholder="Enter your maximum heart rate achieved (e.g., 150)" required>
+            </div>
+            <div class="form-group">
+                <label for="exang">Exercise Induced Angina</label>
+                <select class="form-control" id="exang" name="exang" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="oldpeak">ST Depression Induced by Exercise</label>
+                <input type="number" step="0.1" class="form-control" id="oldpeak" name="oldpeak" placeholder="Enter your ST depression induced by exercise (e.g., 1.5)" required>
+            </div>
+            <div class="form-group">
+                <label for="slope">Slope of the Peak Exercise ST Segment</label>
+                <select class="form-control" id="slope" name="slope" required>
+                    <option value="0">Type 0: Upsloping</option>
+                    <option value="1">Type 1: Flat</option>
+                    <option value="2">Type 2: Downsloping</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ca">Number of Major Vessels Colored by Fluoroscopy</label>
+                <input type="number" class="form-control" id="ca" name="ca" placeholder="Enter the number of major vessels colored by fluoroscopy (e.g., 0)" required>
+            </div>
+            <div class="form-group">
+                <label for="thal">Thalassemia</label>
+                <select class="form-control" id="thal" name="thal" required>
+                    <option value="1">Normal</option>
+                    <option value="2">Fixed Defect</option>
+                    <option value="3">Reversible Defect</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+    </div>
+
+    <button type="button" class="btn btn-info btn-sm" style="position: fixed; top: 10px; right: 10px; z-index: 1000;" data-toggle="modal" data-target="#helpModalCentered">Help</button>
+
+    <div class="modal fade" id="helpModalCentered" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="helpModalLabel">Understanding Input Features</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Understanding the Input Features</h2>
+                    <p>To help us predict your risk of heart disease, please provide the following information from your medical records. If you don't have a recent record for a specific value, consult your doctor.</p>
+                    <ul>
+                        <li><b>Age (Years):</b> Your current age.</li>
+                        <li><b>Sex:</b> Male or Female.</li>
+                        <li><b>Chest Pain Type (cp):</b>
+                            <ul>
+                                <li>Value 0: Typical angina (chest pain that feels like pressure or squeezing)</li>
+                                <li>Value 1: Atypical angina (chest pain that doesn't have the typical features of angina)</li>
+                                <li>Value 2: Non-anginal pain (chest pain that isn't caused by heart problems)</li>
+                                <li>Value 3: Asymptomatic (no chest pain)</li>
+                            </ul>
+                            <p><b>Hint:</b> This information might be noted in a doctor's report or from discussions about chest discomfort.</p>
+                        </li>
+                        <li><b>Resting Blood Pressure (trestbps):</b> Your blood pressure reading in millimeters of mercury (mmHg) while at rest.
+                            <p><b>Hint:</b> Look for blood pressure readings in your medical records or from a recent home blood pressure measurement.</p>
+                        </li>
+                        <li><b>Serum Cholesterol (chol):</b> Your total cholesterol level in milligrams per deciliter (mg/dL).
+                            <p><b>Hint:</b> This value is usually found in a blood test report.</p>
+                        </li>
+                        <li><b>Fasting Blood Sugar (> 120 mg/dL) (fbs):</b>
+                            <ul>
+                                <li>Value 0: Fasting blood sugar less than or equal to 120 mg/dL (normal)</li>
+                                <li>Value 1: Fasting blood sugar greater than 120 mg/dL (possibly diabetic)</li>
+                            </ul>
+                            <p><b>Hint:</b> Check blood test reports for fasting blood sugar levels.</p>
+                        </li>
+                        <li><b>Resting Electrocardiographic Results (restecg):</b>
+                            <ul>
+                                <li>Value 0: Normal resting ECG</li>
+                                <li>Value 1: ST-T wave abnormality (may indicate heart damage)</li>
+                                <li>Value 2: Probable or definite left ventricular hypertrophy (enlarged heart muscle)</li>
+                            </ul>
+                            <p><b>Hint:</b> This information might be in an ECG report or discussed by your doctor.</p>
+                        </li>
+                        <li><b>Maximum Heart Rate Achieved (thalach):</b> The highest heart rate you reached during exercise testing, measured in beats per minute (bpm).
+                            <p><b>Hint:</b> This value is usually found in an exercise stress test report.</p>
+                        </li>
+                        <li><b>Exercise-Induced Angina (exang):</b>
+                            <ul>
+                                <li>Value 0: No</li>
+                                <li>Value 1: Yes</li>
+                            </ul>
+                            <p><b>Hint:</b> Indicate if you experience chest pain during physical activity.</p>
+                        </li>
+                        <li><b>ST Depression Induced by Exercise Relative to Rest (oldpeak):</b> The amount of ST depression (a finding on the ECG) that occurs during exercise compared to when at rest.
+                            <p><b>Hint:</b> This value might be in an exercise stress test report or discussed by your doctor.</p>
+                        </li>
+                        <li><b>Slope of the Peak Exercise ST Segment (slope):</b>
+                            <ul>
+                                <li>Value 0: Upsloping (typically normal)</li>
+                                <li>Value 1: Flat (may indicate heart disease)</li>
+                                <li>Value 2: Downsloping (more indicative of heart disease)</li>
+                            </ul>
+                            <p><b>Hint:</b> This value is often noted in an exercise stress test report.</p>
+                        </li>
+                        <li><b>Number of Major Vessels Colored by Fluoroscopy (ca):</b> The number of major vessels (0-3) showing significant narrowing.
+                            <p><b>Hint:</b> Look for this information in a coronary angiogram report.</p>
+                        </li>
+                        <li><b>Thalassemia (thal):</b>
+                            <ul>
+                                <li>Value 1: Normal blood flow</li>
+                                <li>Value 2: Fixed defect (permanent damage)</li>
+                                <li>Value 3: Reversible defect (temporary reduction in blood flow)</li>
+                            </ul>
+                            <p><b>Hint:</b> This information might be found in a thalassemia screening report or discussed by your doctor.</p>
+                        </li>
+                    </ul>
+                    <p>If you have any questions or need assistance, please consult with your healthcare provider for the most accurate and up-to-date information.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

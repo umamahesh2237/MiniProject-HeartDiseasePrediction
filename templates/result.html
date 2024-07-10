@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .result-card {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .result-text {
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .health-metrics, .dietary-recommendations {
+            margin-top: 20px;
+        }
+        .health-metrics ul, .dietary-recommendations ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .health-metrics li, .dietary-recommendations li {
+            background: #e9ecef;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="result-card">
+            <h2 class="text-center">Prediction Result</h2>
+            <p class="result-text">
+                {% if prediction == 1 %}
+                    The model predicts that you <strong>have</strong> a heart disease.
+                {% else %}
+                    The model predicts that you <strong>do not have</strong> a heart disease.
+                {% endif %}
+            </p>
+            <div class="health-metrics">
+                <h3 class="text-center">Health Metrics</h3>
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message | safe }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="dietary-recommendations">
+                <h3 class="text-center">Dietary Recommendations</h3>
+                <ul>
+                    {% for recommendation in recommendations %}
+                        <li>{{ recommendation | safe }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <a href="/" class="btn btn-primary">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
